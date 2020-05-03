@@ -49,6 +49,8 @@ class NewsPage extends Component {
             author: data.author,
             title : data.title,
             urlToImage : data.urlToImage,
+            description : data.description,
+            publishedAt : data.publishedAt,
         }))
         return (
             <NewsComponent

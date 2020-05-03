@@ -1,30 +1,11 @@
 import React, { Component } from 'react'; 
-import { Layout, Row, Col, Modal } from 'antd'; 
+import { Layout, Row, Col, Card } from 'antd'; 
 import '../assets/css/portofolio.css' 
 import Navbar from '../common/layout/navbar-landing' 
 import ButtonHome from '../common/component/button/button-home'; 
 
+const { Meta } = Card;
 const { Content } = Layout; // membuat konstanta content 
-const whyData = [
-    {
-        // // image: require(`../../../assets/images/tracking.png`),
-        title: 'Berita1',
-        link : "",
-        description: "Summary berita 1"
-    },
-    {
-        // // image: require(`../../../assets/images/certificate.png`),
-        title: 'Berita2',
-        link : "",
-        description: "Summary berita 2"
-    },
-    {
-        // // image: require(`../../../assets/images/paperless.png`),
-        title: 'Berita3',
-        link : "",
-        description: "Summary berita 3"
-    }
-]
 
 class NewsComponent extends Component{
     render(){
@@ -57,28 +38,38 @@ class NewsComponent extends Component{
                                     type="flex" gutter={[16,16]}
                                     className="card-why-container"
                                 >
+                                    
                                     {
-                                        data.map( data =>
-                                            <Col lg={8} md={12} sm={12} className="">
-                                                <div className="card-why-content">
-                                                    <img style={{minHeight:"150px", minWidth:"300px", borderRadius:"10px"}} src={data.urlToImage}  className="card-why-image"/>
-                                                    <div className="text-soft-blue semi-bold mt-10">
-                                                        {data.title}
-                                                    </div>
-                                                    <div className="mt-10" style={{maxWidth:'260px'}}>
-                                                        {data.author}<br/><br/>
+                                    data.map( data =>
+                                        <Col lg={8} md={12} sm={12} className="">
+                                            <Card
+                                            hoverable
+                                            >
+                                                <div className="card-why-content" style={{marginLeft:"0px", marginTop:"0px", maxWidth:"none", borderRadius:"10px"}}>
+                                                    <img style={{minHeight:"150px", minWidth:"360px", borderRadius:"8px"}} src={data.urlToImage}  className="card-why-image"/>
+                                                    <br></br>
+                                                    <br></br>
+                                                    <Meta title={data.title} description={data.description} />
+                                                    
+                                                    
+                                                    <div className="mt-10">
+                                                        <br></br>
+                                                        <p>Penulis : {data.author} <br></br>
+                                                        Tanggal Terbit : {data.publishedAt}</p>
                                                         <a >
                                                             <ButtonHome
-                                                                text="More"
+                                                                text="Baca Selengkapnya ..."
                                                                 background="#7e6752"
                                                                 textColor="#fff"
+                                                                borderRadius="8px"
                                                                 className='button-participate'
                                                                 // onClick = {data.link}
                                                             />
                                                         </a>
                                                     </div>
                                                 </div>
-                                            </Col>
+                                            </Card>
+                                        </Col>
                                         )
                                     }
                                 </Row>
