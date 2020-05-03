@@ -28,6 +28,7 @@ const whyData = [
 
 class NewsComponent extends Component{
     render(){
+        const{data}=this.props;
         return(
             <Layout className="landing-container">
                 <Content style={{ overflow: "hidden" }}> 
@@ -53,26 +54,26 @@ class NewsComponent extends Component{
                             </Col>                        
                             <Col lg={24} className="mt-20">
                                 <Row
-                                    type="flex" justify="center"
+                                    type="flex" gutter={[16,16]}
                                     className="card-why-container"
                                 >
                                     {
-                                        whyData.map( data =>
+                                        data.map( data =>
                                             <Col lg={8} md={12} sm={12} className="">
                                                 <div className="card-why-content">
-                                                    <img src={data.image}  className="card-why-image"/>
+                                                    <img style={{minHeight:"150px", minWidth:"300px", borderRadius:"10px"}} src={data.urlToImage}  className="card-why-image"/>
                                                     <div className="text-soft-blue semi-bold mt-10">
                                                         {data.title}
                                                     </div>
                                                     <div className="mt-10" style={{maxWidth:'260px'}}>
-                                                        {data.description}<br/><br/>
-                                                        <a href={data.link}>
+                                                        {data.author}<br/><br/>
+                                                        <a >
                                                             <ButtonHome
                                                                 text="More"
                                                                 background="#7e6752"
                                                                 textColor="#fff"
                                                                 className='button-participate'
-                                                                onClick = {data.link}
+                                                                // onClick = {data.link}
                                                             />
                                                         </a>
                                                     </div>
