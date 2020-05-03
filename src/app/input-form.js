@@ -1,7 +1,8 @@
 import React from 'react';
 import { Input, Icon } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import '../assets/css/style.css' 
+import '../assets/css/style.css'
+import axios from 'axios'; 
 
 function InputForm({
     value, onChange, placeholder, className, style, name, type,
@@ -25,5 +26,7 @@ function InputForm({
         
     );
 }
+
+ 
 
 export default InputForm;
