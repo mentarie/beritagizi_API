@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Menu } from 'antd';
 import '../layout/css/navbar-style.css';
 import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
+  BarChartOutlined,
+  PicLeftOutlined,
+  SolutionOutlined,
 } from '@ant-design/icons';
 
 import { Link } from 'react-router-dom';
@@ -13,7 +13,7 @@ const { SubMenu } = Menu;
 
 class Navbar extends Component {
   state = {
-    current: 'mail',
+    current: 'calc',
   };
 
   handleClick = e => {
@@ -27,16 +27,19 @@ class Navbar extends Component {
     return (
     <nav className="menuBar">
       <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-        <Menu.Item key="mail">
-          <MailOutlined />
-          <Link to="/">Profile</Link> 
+        <Menu.Item key="calc">
+          <BarChartOutlined />
+          <Link to="/">Food Calculator</Link> 
         </Menu.Item>
-        <Menu.Item key="app">
-          <AppstoreOutlined />
-          <Link to="/portofolio">Portofolio</Link>
+        <Menu.Item key="news">
+          <PicLeftOutlined />
+          <Link to="/news">Health News</Link>
         </Menu.Item>
-
-        <Menu.Item key="alipay">
+        <Menu.Item key="kms">
+          <SolutionOutlined />
+          <Link to="/kms">Data Anak KMS</Link>
+        </Menu.Item>
+        <Menu.Item key="github">
           <a href="https://github.com/mentarie/beritagizi_API" color = "#7e6752" target="_blank" rel="noopener noreferrer">
             Repositori Github
           </a>
