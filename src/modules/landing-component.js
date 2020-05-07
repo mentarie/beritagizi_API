@@ -1,21 +1,21 @@
 import React, { Component } from 'react'; 
-import { Layout, Row, Col, Modal } from 'antd'; 
+import { Layout, Row, Col, Input, Table } from 'antd'; 
 import '../assets/css/landing.css' 
-import Navbar from '../common/layout/navbar-landing' 
-import ButtonHome from '../common/component/button/button-home'; 
 
 const { Content } = Layout; 
+const { Search } = Input;
 
 class LandingComponent extends Component{
     render(){
+        const{data_makanan,columns,searchGizi}=this.props;
         const image1 = require(`../assets/images/picture.jpg`); 
-        const {initialData,showModal,handleOk,handleCancel} = this.props; {
-        }
+        
+        
         return(
             <Layout className="landing-container">
                 {/*<Navbar/>  {}*/}
                 <Content style={{ overflow: "hidden" }}> {}
-                    <Row className="section-container">
+                    <Row className="section-container" style={{marginBottom:"0px"}}>
                         <Col lg={12} md={12} sm={12}>
                             <div className="image-big-container">
                                 <img
@@ -46,37 +46,25 @@ class LandingComponent extends Component{
                                 </Col>
                                 <Col span={24}>
                                     <div className="button-section-1-container">                                
-                                        <ButtonHome
-                                            text="Show Me"
-                                            background="#7e6752"
-                                            textColor="#fff"
-                                            className='button-participate'
-                                            onClick = {showModal}
-                                        />{}
-                                        <ButtonHome
-                                            text="Another Information"
-                                            background="white"
-                                            textColor="#7e6752"
-                                            border="1px solid #7e6752"
-                                            marginLeft={16}
-                                            className='button-participate'
+                                        <Search
+                                        placeholder="Masukkan Nama Makanan"
+                                        onSearch={value => searchGizi(value)}
+                                        style={{ width: 320 }}
                                         />
                                     </div>
                                 </Col>
-                                <Modal
-                                    title="Contact"
-                                    visible={initialData.visible}
-                                    onOk={handleOk}
-                                    onCancel={handleCancel}
-                                    className = "modal-notif"
-                                    >
-                                    <p className="text-notif">Jika ingin mencari tahu gizi lebih lengkap, bisa juga kunjungi <a>https://developer.edamam.com/food-database-api</a>
-                                     </p>
-                                </Modal>{}
                             </Row>
                         </Col>  
                     </Row>
+                        <Row className="section-container">                
+                            <Col lg={24} className="mt-20">
+                                <br></br>
+                                <br></br>
+                                <Table columns={columns} dataSource={data_makanan} />
+                            </Col>
+                        </Row>
                 </Content>
+                
             </Layout>
         );
     }

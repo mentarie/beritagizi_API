@@ -3,7 +3,6 @@ import NewsComponent from '../modules/news-component'
 
 import axios from 'axios';
 
-
 class NewsPage extends Component {
     state ={
         visible: false,
@@ -51,6 +50,7 @@ class NewsPage extends Component {
             urlToImage : data.urlToImage,
             description : data.description,
             publishedAt : data.publishedAt,
+            content : data.content,
         }))
         return (
             <NewsComponent

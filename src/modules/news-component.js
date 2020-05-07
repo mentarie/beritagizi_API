@@ -1,13 +1,40 @@
 import React, { Component } from 'react'; 
-import { Layout, Row, Col, Card } from 'antd'; 
+import { Layout, Row, Col, Card , Modal} from 'antd'; 
 import '../assets/css/portofolio.css' 
-import Navbar from '../common/layout/navbar-landing' 
+import '../assets/css/style.css' 
 import ButtonHome from '../common/component/button/button-home'; 
 
 const { Meta } = Card;
 const { Content } = Layout; // membuat konstanta content 
 
 class NewsComponent extends Component{
+    state = { visible: false }
+    showModal = () => {
+        this.setState({
+        visible: true,
+        });
+    }
+    handleChange = (e) => {
+        let target = e.target.name;
+        let value = e.target.value;
+        this.setState({
+            [target]: value
+        })
+    }
+    handleOk = (e) => {
+        console.log(e);
+        this.setState({
+          visible: false,
+        })
+    }
+
+    handleCancel = (e) => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        })
+    }
+
     render(){
         const{data}=this.props;
         return(
@@ -33,13 +60,13 @@ class NewsComponent extends Component{
                                     borderRadius: 26,
                                 }}/>
                             </Col>                        
-                            <Col lg={24} className="mt-20">
+                            <Col lg={300} className="mt-20">
                                 <Row
                                     type="flex" gutter={[16,16]}
                                     className="card-why-container"
                                 >
                                     
-                                    {
+                                {
                                     data.map( data =>
                                         <Col lg={8} md={12} sm={12} className="">
                                             <Card
@@ -50,7 +77,6 @@ class NewsComponent extends Component{
                                                     <br></br>
                                                     <br></br>
                                                     <Meta title={data.title} description={data.description} />
-                                                    
                                                     
                                                     <div className="mt-10">
                                                         <br></br>
@@ -63,15 +89,15 @@ class NewsComponent extends Component{
                                                                 textColor="#fff"
                                                                 borderRadius="8px"
                                                                 className='button-participate'
-                                                                // onClick = {data.link}
+                                                                onClick = {()=>this.showModal()}
                                                             />
                                                         </a>
                                                     </div>
                                                 </div>
                                             </Card>
                                         </Col>
-                                        )
-                                    }
+                                    )
+                                }
                                 </Row>
                             </Col>
                         </Row>
