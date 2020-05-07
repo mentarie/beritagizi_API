@@ -1,0 +1,4 @@
+Setelah clone, hapus node modeules, kemudian pada terminalmu :
+npm install
+
+>> ini digunakan untuk mengatasi error ketika setelah gclone belum bisa di npm start
