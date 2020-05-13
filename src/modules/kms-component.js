@@ -40,7 +40,7 @@ class KmsComponent extends Component{
                                 }}/>
                             </Col>                    
                             <Col lg={24} className="mt-20">
-                                <Button key="tambah_data" className="editable-add-btn" type="primary" onClick={()=>showModal()}>Tambah Data
+                                <Button key="tambah_data" className="editable-add-btn"  type="primary" onClick={()=>showModal()}>Tambah Data
                                 </Button>
                                 <br></br>
                                 <br></br>
