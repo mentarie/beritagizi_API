@@ -14,7 +14,7 @@ class NewsPage extends Component {
     }
     
     getNews=()=>{
-      axios.get(`http://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=67ad75d27dcc4815b2c1925aa55d7b4f`)
+      axios.get(`https://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=67ad75d27dcc4815b2c1925aa55d7b4f`)
       .then(res => {
         // const persons = res.data;
         console.log(res.data.articles);
